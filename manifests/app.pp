@@ -5,7 +5,7 @@
 # Parameters:
 #
 #   [*approot*]            - Path to the Rack application root. Your config.ru
-#                            should be in this directory
+#                            file should be in this directory
 #   [*pidfile*]            - Filepath to read / write the PID to
 #   [*socket*]             - Filepath to create the socket file
 #   [*config_file*]        - Path to your app's unicorn config file
