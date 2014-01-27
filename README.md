@@ -6,7 +6,7 @@ A puppet module that creates unicorn services for Rack apps.
 
 Not yet available on Puppet Forge.
 
-Include it as a git submodule, do something like:
+To include it as a git submodule, do something like:
 
     $ git submodule add git@github.com:simpleweb/puppet-unicorn.git modules/unicorn
 
