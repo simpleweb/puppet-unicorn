@@ -4,11 +4,9 @@ A puppet module that creates unicorn services for Rack apps.
 
 ### Installation
 
-To install using the puppet module tool, run:
+Not yet available on Puppet Forge.
 
-    $ puppet module install simpleweb/unicorn
-
-Or to include it as a git submodule, do something like:
+Include it as a git submodule, do something like:
 
     $ git submodule add git@github.com:simpleweb/puppet-unicorn.git modules/unicorn
 
