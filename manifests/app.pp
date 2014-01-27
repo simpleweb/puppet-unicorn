@@ -53,7 +53,7 @@ define unicorn::app (
   }
 
   $daemon      = $bundler_executable
-  $daemon_opts = "exec unicorn $_unicorn_opts"
+  $daemon_opts = "exec unicorn ${_unicorn_opts}"
 
   service { "unicorn_${name}":
     ensure     => running,
@@ -73,14 +73,14 @@ define unicorn::app (
     group   => root,
     mode    => 644,
     content => template("unicorn/default-unicorn.erb"),
-    notify  => Service["unicorn_${name}"]
+    notify  => Service["unicorn_${name}"];
   }
 
   file { "/etc/init.d/unicorn_${name}":
     owner   => root,
     group   => root,
     mode    => 755,
-    content => template($initscript),
-    notify  => Service["unicorn_${name}"]
+    content => template("unicorn/init-unicorn.erb"),
+    notify  => Service["unicorn_${name}"];
   }
 }
