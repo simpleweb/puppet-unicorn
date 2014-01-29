@@ -23,6 +23,7 @@ unicorn::app { "acme":
   user        => "acme",
   group       => "acme",
   rack_env    => "production",
+  env_file    => "/home/acme/.localrc",
 }
 ```
 
@@ -49,6 +50,8 @@ Below is the full list of options, with defaults where appropriate:
 [*bundler_executable*] - Path to bundler executable (bundle)
 [*unicorn_options*]    - Unicorn start options (--daemonize --env \
                          ${rack_env} --config-file ${config_file})
+[*env_file*]           - Path to a file of environment variables to load
+                         before running unicorn, via `source` (undef)
 ```
 
 ### Limitations & assumptions
