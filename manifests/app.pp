@@ -13,6 +13,7 @@
 #   [*group*]              - Group to run the unicorn process as (root)
 #   [*rack_env*]           - Environment to run your Rack app under (production)
 #   [*bundler_executable*] - Path to bundler executable (bundle)
+#   [*bin_path*]           - Path to the unicorn binary (unicorn)
 #   [*unicorn_options*]    - Unicorn start options (--daemonize --env \
 #                            ${rack_env} --config-file ${config_file})
 #
@@ -43,6 +44,7 @@ define unicorn::app (
   $group              = 'root',
   $rack_env           = 'production',
   $bundler_executable = 'bundle',
+  $bin_path           = 'unicorn',
   $unicorn_opts       = undef,
 ) {
 
@@ -53,7 +55,7 @@ define unicorn::app (
   }
 
   $daemon      = $bundler_executable
-  $daemon_opts = "exec unicorn ${_unicorn_opts}"
+  $daemon_opts = "exec ${bin_path} ${_unicorn_opts}"
 
   service { "unicorn_${name}":
     ensure     => running,
