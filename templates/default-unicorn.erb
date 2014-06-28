@@ -20,8 +20,7 @@ GROUP="<%= @group %>"
 export RAILS_ENV="$ENV"
 export RACK_ENV="$ENV"
 
-# use .localrc for SUPER SECRET STUFF that you don't in a repo
-if [[ -a /home/simpleweb/.localrc ]]
-then
-  source /home/simpleweb/.localrc
-fi
+# load env file for additional environment variables
+<% if @env_file %>
+source <%= @env_file %>
+<% end %>
